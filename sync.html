@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>Ajax</title>
+<script>
+ function sendColorRequest() {
+     var xmlHttpRequest = null;
+	 if (window.XMLHttpRequest)
+	    xmlHttpRequest = new window.XMLHttpRequest();
+	 else
+	 xmlHttpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+	 xmlHttpRequest.open("GET","http://82.179.31.34/response.txt", false);
+	 xmlHttpRequest.send(null);
+	 
+	 var selectColor = document.getElementById("selectColor");
+	 selectColor.innerHTML = xmlHttpRequest.responseText;
+	 
+ }
+ </script>
+</head>
+<body>
+<h1>Заголовок</h1>
+<p><img src="test.jpg" width="4052" height="2787" alt="Товары">Текст.</p>
+<fieldset id="selectColor" style="width: 250">
+<input type="button" value="Отправить запрос" onclick="sendColorRequest();">
+</fieldset>
+</body>
+</html>
